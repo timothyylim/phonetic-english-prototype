@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style media="screen">
+        span {
+            position: relative;
+        }
+
+        span>span:first-child {
+            color: red;
+            position: absolute;
+            line-height: 1;
+            top: 1.5em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        span>span:last-child {
+            color: blue;
+            position: relative;
+        }
+
+        p {
+            line-height: 4;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+
+    <br /><br /><br /><br />
+
+    <div class="" style="text-align:left;max-width:500px;margin:auto; ">
+
+        <h1>
+          Phonetic translation prototype 🤓
+        </h1>
+
+        <p>
+      In the beginning God created the heavens and the earth. 2 Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters.
+        </p>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(function() {
+
+            let sub = {
+                "beginning":"beegeening",
+                "earth":"urth"
+            };
+            var substitute = (s) => $("p").each((i,e) => $(e).html(e.innerHTML.split(" ").map((a) => a in s ? [s[a],a] : a).map( (a) => typeof(a) == "object" ? "<span><span>"+a[0]+"</span><span>"+a[1]+"</span></span>" : a ).join(" ")) );
+
+
+            substitute(sub)
+
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>
